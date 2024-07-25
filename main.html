@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link rel="javascript" href="index.js">
+</head>
+<body>
+    <input type="text" class="js-cost-calculator" placeholder="Calculate Cost" 
+    onkeydown=" handleCost(event);">
+    <button onclick="caculateCost()">Calculate</button>
+    <p class="js-total"></p>
+    <script>
+        function handleCost(event) {
+            if (event.key === 'Enter') {
+                caculateCost();
+            }
+
+        }
+       function caculateCost () {
+          const inputElement = document.querySelector('.js-cost-calculator');
+          let cost = Number(inputElement.value);
+
+          if (cost<40) {
+            cost = cost +10;
+
+          }
+          document.querySelector('.js-total').innerHTML = `$${cost}`;
+       }
+    </script>
+</body>
+</html>
